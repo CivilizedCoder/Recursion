@@ -1,32 +1,26 @@
 
 public class rec {
 	public static void main (String [] args) {
-		int arr[] = {1, 2, 3, 5, 76, 7, 3,6};
+		int arr[] = {1, 2, 37, 5, 52, 91, 3,6};
 		rec r = new rec();
 		System.out.println(r.largest(arr, arr.length-1));
+
 
 		
 	}
 	public int largest(int [] arr, int n) {
-		int point = 1;
-		
-		while(arr[n] > arr[n-point]) {
-			point = n-1;
+		//base case
+		if (n < 0) {
+			return arr[0];
 		}
-		
-		
-		if ( arr[n-point] > arr[n]) {
-			int ph = n-point;
-			arr[n-point] = arr[n];
-			arr[n] = ph;
-			return largest(arr, arr[n-point-1]);
-		}
+		//recursion case
 		else {
-			
-			return arr[n];	
+
+			if (arr[0] < arr[n]) 
+			{
+				arr[0] = arr[n];
+			}
+			return largest(arr, n - 1);
 		}
 	}
-
-
 }
-
